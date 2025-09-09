@@ -5,7 +5,7 @@ signal died
 @export var level_start_pos : Node2D
 
 @onready var tilemap = $"../LevelLayout"
-@onready var colorrect = $"../CanvasLayer/ColorRect"
+@onready var colorrect = $"../DeathUI/ColorRect"
 
 const SPEED = 550
 var can_control = true

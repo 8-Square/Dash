@@ -1,9 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://6i1bucd7ot22"]
+[gd_scene load_steps=7 format=3 uid="uid://6i1bucd7ot22"]
 
+[ext_resource type="Script" uid="uid://uii8el3uex28" path="res://Assets/Scenes/main_menu.gd" id="1_fsbqx"]
 [ext_resource type="FontFile" uid="uid://dpgcqrjo13lqi" path="res://Assets/Fonts/BoldPixels1.4.ttf" id="1_x6jn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6jn2"]
+bg_color = Color(0.356863, 0.631373, 0.556863, 0.662745)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(0, 1.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsbqx"]
 bg_color = Color(0.401381, 0.624302, 0.693976, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(0, 1.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tanm1"]
+bg_color = Color(0.262745, 0.443137, 0.498039, 0.733333)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -27,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fsbqx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -71,9 +91,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_x6jn2")
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_x6jn2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fsbqx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tanm1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cbhea")
 text = "Start"
 
@@ -82,8 +102,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_x6jn2")
 theme_override_font_sizes/font_size = 75
-theme_override_styles/focus = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_x6jn2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fsbqx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tanm1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cbhea")
 text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
