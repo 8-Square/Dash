@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
+	$AnimationPlayer.play("new_animation")
+	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://Assets/Scenes/level_one.tscn")
 
 func _on_quit_pressed() -> void:

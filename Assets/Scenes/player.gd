@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 signal died
+signal level_complete
+
 @export var level_start_pos : Node2D
 
 @onready var tilemap = $"../LevelLayout"
@@ -52,19 +54,23 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 		if collision.get_normal().y != 0:
 			velocity.y = 0
-	check_spike()
+	check_special()
 
 
-func check_spike():
+func check_special():
 	var cell: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position))
 	var tile_data: TileData = tilemap.get_cell_tile_data(cell)
 	if tile_data:
-		print("Tile Found At", cell, " custom Trap=", tile_data.get_custom_data("Trap"))
 		if tile_data.get_custom_data("Trap") and can_control:
 			can_control = false
 			print("TOUCHING")
 			emit_signal("died")
+		if tile_data.get_custom_data("Checkpoint") and can_control:
+			can_control = false
+			emit_signal("level_complete")
 
+
+	
 
 
 func reset_player() -> void:

@@ -1,7 +1,91 @@
-[gd_scene load_steps=7 format=3 uid="uid://6i1bucd7ot22"]
+[gd_scene load_steps=10 format=3 uid="uid://6i1bucd7ot22"]
 
 [ext_resource type="Script" uid="uid://uii8el3uex28" path="res://Assets/Scenes/main_menu.gd" id="1_fsbqx"]
 [ext_resource type="FontFile" uid="uid://dpgcqrjo13lqi" path="res://Assets/Fonts/BoldPixels1.4.ttf" id="1_x6jn2"]
+
+[sub_resource type="Animation" id="Animation_cbhea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0235294, 0.0235294, 0.0235294, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameName:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fsbqx"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.0235294, 0.0235294, 0.0235294, 0), Color(0.0235294, 0.0235294, 0.0235294, 0.639216), Color(0.0235294, 0.0235294, 0.0235294, 0.921569), Color(0.0235294, 0.0235294, 0.0235294, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameName:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tanm1"]
+_data = {
+&"RESET": SubResource("Animation_cbhea"),
+&"new_animation": SubResource("Animation_fsbqx")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6jn2"]
 bg_color = Color(0.356863, 0.631373, 0.556863, 0.662745)
@@ -57,6 +141,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0588235, 0.12549, 0.188235, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tanm1")
+}
+
+[node name="StartScreen" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 0)
 
 [node name="GameName" type="RichTextLabel" parent="."]
 layout_mode = 1
