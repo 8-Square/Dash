@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://yur5juurdfen"]
+
+[ext_resource type="Texture2D" uid="uid://dcth5tfputnfu" path="res://Assets/Tilesets/Dash-Tileset.png" id="1_fj0eq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6lna"]
+texture = ExtResource("1_fj0eq")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+
+[resource]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "Trap"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_s6lna")
