@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://6i1bucd7ot22"]
+
+[ext_resource type="FontFile" uid="uid://dpgcqrjo13lqi" path="res://Assets/Fonts/BoldPixels1.4.ttf" id="1_x6jn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsbqx"]
+bg_color = Color(0.401381, 0.624302, 0.693976, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(0, 1.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbhea"]
+bg_color = Color(0.737255, 0.466667, 0.14902, 0.501961)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+shadow_offset = Vector2(0, 1.5)
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.12549, 0.188235, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="GameName" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_x6jn2")
+theme_override_font_sizes/normal_font_size = 200
+text = "DASH"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = 291.0
+offset_right = -354.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_x6jn2")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbhea")
+text = "Start"
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_x6jn2")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/focus = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fsbqx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbhea")
+text = "Quit"
