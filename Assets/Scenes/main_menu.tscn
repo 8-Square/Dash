@@ -1,7 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://6i1bucd7ot22"]
+[gd_scene load_steps=12 format=3 uid="uid://6i1bucd7ot22"]
 
-[ext_resource type="Script" uid="uid://uii8el3uex28" path="res://Assets/Scenes/main_menu.gd" id="1_fsbqx"]
+[ext_resource type="Script" uid="uid://uii8el3uex28" path="res://Assets/Scripts/main_menu.gd" id="1_fsbqx"]
 [ext_resource type="FontFile" uid="uid://dpgcqrjo13lqi" path="res://Assets/Fonts/BoldPixels1.4.ttf" id="1_x6jn2"]
+[ext_resource type="Texture2D" uid="uid://deyffqr1hofmy" path="res://Assets/Tilesets/Screenshot 2025-09-10 191141.png" id="2_cbhea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tanm1"]
+texture = ExtResource("2_cbhea")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.295867, 0.295866, 0.295866, 1)
 
 [sub_resource type="Animation" id="Animation_cbhea"]
 length = 0.001
@@ -142,6 +149,16 @@ grow_vertical = 2
 color = Color(0.0588235, 0.12549, 0.188235, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tanm1")
+metadata/_edit_use_anchors_ = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tanm1")
@@ -161,13 +178,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -261.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_x6jn2")
 theme_override_font_sizes/normal_font_size = 200
 text = "DASH"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -176,12 +194,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 349.0
-offset_top = 291.0
+offset_top = 362.0
 offset_right = -354.0
-offset_bottom = -103.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
