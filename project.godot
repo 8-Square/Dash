@@ -16,6 +16,10 @@ config/version="1.0.0"
 run/main_scene="uid://6i1bucd7ot22"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
