@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Dash"
 config/description="My personal take on Tomb of the Mask"
-config/version="1.0.0"
+config/version="1.0.2"
 run/main_scene="uid://6i1bucd7ot22"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [display]
 
@@ -66,4 +66,5 @@ Restart={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.189245, 0.102345, 0.0984657, 1)
