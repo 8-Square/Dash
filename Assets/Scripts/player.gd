@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity == Vector2.ZERO:
 		var action = action_name()
+
 		match action:
 			"Down":
 				velocity = Vector2.DOWN * SPEED
@@ -46,6 +47,10 @@ func _physics_process(delta: float) -> void:
 			"Left":
 				velocity = Vector2.LEFT * SPEED
 		
+		#await get_tree().create_timer(3.0).timeout 
+		#if velocity == Vector2.ZERO:
+			#fail_move()
+	
 	move_and_slide()
 	
 	for i in range(get_slide_collision_count()):
@@ -69,7 +74,8 @@ func check_special():
 			can_control = false
 			emit_signal("level_complete")
 
-
+#func fail_move():
+	#print("FAILED TO MOVE IN TIME")
 	
 
 
